@@ -11,6 +11,6 @@ docker run -v token:/tmp/secrets/token \
 -e GIT_USER="$(whoami)" \
 -e GIT_TOKEN_FILE="/tmp/secrets/token" \
 --entrypoint '/opt/app/git-checkout.sh' \
--it kubesailmaker/git-checkout:0.3
+-it kubesailmaker/git-checkout:0.5
 
 ```

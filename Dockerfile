@@ -6,6 +6,7 @@ RUN addgroup -g 1000 -S app && adduser -u 1000 -G app -S app && \
 USER app
 COPY --chown=app:app git-checkout.sh /opt/app/git-checkout.sh
 RUN chmod a+x /opt/app/git-checkout.sh
+WORKDIR /tmp
 CMD ["/opt/app/git-checkout.sh"]
 
 

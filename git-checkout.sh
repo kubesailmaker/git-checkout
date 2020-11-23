@@ -31,12 +31,12 @@ do
   then
     branch="master"
   fi;
-  echo ${git_url} to ${folder}, checkout branch ${branch} 
+  echo project=${project}, folder=\"${folder}\", branch=${branch} 
   git clone --single-branch --branch $branch ${git_url} ${folder}
   last_cd=$?
   if [[ ${last_cd} -ne 0 ]];
   then
-    echo "error checking out ${branch} from ${git_url} folder=\"${folder}\""
+    echo "error checking out, project=${project}, branch=${branch} folder=\"${folder}\""
   fi;
 done;
 

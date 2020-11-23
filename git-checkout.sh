@@ -8,13 +8,15 @@ then
   exit 1;
 fi;
 
+if [[ ${GIT_TOKEN_FILE} ]];
+then
+  GIT_TOKEN=$(cat ${GIT_TOKEN_FILE})
+fi;
+
 for x in ${GIT_PROJECTS[@]}
 do
   IFS=',' read -r project folder branch <<< "$x";
   echo project $project
-
-
-
 
   git_url=""
 
@@ -32,6 +34,7 @@ do
   git clone --single-branch --branch $branch ${git_url} ${folder}
   last_cd=$?
   if [[ ${last_cd} -ne 0 ]];
+  then
     echo "error checking out ${branch} from ${git_url} folder=\"${folder}\""
   fi;
 done;

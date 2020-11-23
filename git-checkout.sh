@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 
 : "${GIT_PROTOCOL:=ssh}"
 
@@ -8,7 +9,7 @@ then
   exit 1;
 fi;
 
-if [[ ${GIT_TOKEN_FILE} ]];
+if [[ -f ${GIT_TOKEN_FILE} ]];
 then
   GIT_TOKEN=$(cat ${GIT_TOKEN_FILE})
 fi;

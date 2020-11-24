@@ -32,7 +32,7 @@ do
     branch="master"
   fi;
   echo project=${project}, folder=\"${folder}\", branch=${branch} 
-  git clone --single-branch --branch $branch ${git_url} ${folder}
+  git clone --quiet --single-branch --branch $branch ${git_url} ${folder}
   last_cd=$?
   if [[ ${last_cd} -ne 0 ]];
   then
